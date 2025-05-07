@@ -1,0 +1,620 @@
+.main-page {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-page .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 1440px;
+  height: 2372px;
+  position: relative;
+}
+
+.main-page .categories {
+  position: absolute;
+  width: 1376px;
+  height: 580px;
+  top: 120px;
+  left: 32px;
+}
+
+.main-page .overlap {
+  position: relative;
+  height: 580px;
+}
+
+.main-page .images {
+  position: absolute;
+  width: 1376px;
+  height: 580px;
+  top: 0;
+  left: 0;
+}
+
+.main-page .image-5 {
+  background: url("../images/image-12.png");
+  position: absolute;
+  width: 432px;
+  height: 580px;
+  top: 0;
+  left: 0;
+  background-size: cover;
+}
+
+.main-page .image-6 {
+  background: url("../images/v16_19.png");
+  position: absolute;
+  width: 432px;
+  height: 580px;
+  top: 0;
+  left: 472px;
+  background-size: cover;
+}
+
+.main-page .image-7 {
+  background: url("../images/v16_22.png");
+  position: absolute;
+  width: 432px;
+  height: 580px;
+  top: 0;
+  left: 944px;
+  background-size: cover;
+}
+
+.main-page .buttons {
+  position: absolute;
+  width: 1104px;
+  height: 46px;
+  top: 267px;
+  left: 136px;
+}
+
+.main-page .she {
+  position: absolute;
+  width: 162px;
+  height: 46px;
+  top: 0;
+  left: 0;
+}
+
+.main-page .overlap-group {
+  position: relative;
+  width: 160px;
+  height: 46px;
+  background-image: url(https://c.animaapp.com/mac3lr3gzbnGtY/img/rectangle-4.svg);
+  background-size: 100% 100%;
+}
+
+.main-page .text-wrapper-4 {
+  height: 30px;
+  top: 8px;
+  left: 55px;
+  font-size: 20px;
+  line-height: 30px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .he {
+  position: absolute;
+  width: 162px;
+  height: 46px;
+  top: 0;
+  left: 472px;
+}
+
+.main-page .overlap-2 {
+  position: relative;
+  width: 160px;
+  height: 46px;
+}
+
+.main-page .rectangle {
+  position: absolute;
+  width: 160px;
+  height: 46px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  opacity: 0.75;
+}
+
+.main-page .text-wrapper-5 {
+  height: 30px;
+  top: 8px;
+  left: 65px;
+  font-size: 20px;
+  line-height: 30px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .children {
+  position: absolute;
+  width: 162px;
+  height: 46px;
+  top: 0;
+  left: 944px;
+}
+
+.main-page .text-wrapper-6 {
+  height: 30px;
+  top: 7px;
+  left: 62px;
+  font-size: 20px;
+  line-height: 30px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .p {
+  height: 54px;
+  top: 779px;
+  left: 417px;
+  font-size: 36px;
+  line-height: 54px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .polygon {
+  background-image: url("../images/Polygon\ 1.png");
+  top: 1051px;
+  left: 60px;
+  position: absolute;
+  width: 32px;
+  height: 49px;
+}
+
+.main-page .polygon-2 {
+  background-image: url("../images/Polygon\ 1\ \(1\).png");
+  position: absolute;
+  width: 32px;
+  height: 49px;
+  top: 1051px;
+  left: 1348px;
+}
+
+.main-page .text-wrapper-7 {
+  height: 48px;
+  top: 1347px;
+  left: 581px;
+  font-size: 32px;
+  line-height: 48px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .polygon-3 {
+  background-image: url("../images/Polygon\ 1.png");
+  top: 1624px;
+  left: 104px;
+  position: absolute;
+  width: 32px;
+  height: 49px;
+}
+
+.main-page .polygon-4 {
+  background-image: url("../images/Polygon\ 1\ \(1\).png");
+  top: 1624px;
+  left: 1304px;
+  position: absolute;
+  width: 32px;
+  height: 49px;
+}
+
+.main-page .item {
+  position: absolute;
+  width: 284px;
+  height: 416px;
+  top: 1436px;
+  left: 148px;
+}
+
+.main-page .overlap-3 {
+  position: relative;
+  width: 280px;
+  height: 416px;
+  background-color: #f5f5f5;
+}
+
+.main-page .like-wrapper {
+  position: absolute;
+  width: 240px;
+  height: 320px;
+  top: 20px;
+  left: 20px;
+  background-image: url("../images/image-23.png");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.main-page .like {
+  top: 284px;
+  left: 204px;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.main-page .image-8 {
+  background-image: url("");
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 4px;
+  left: 4px;
+  object-fit: cover;
+}
+
+.main-page .text-wrapper-8 {
+  top: 348px;
+  left: 20px;
+  position: absolute;
+  height: 24px;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.main-page .text-wrapper-9 {
+  height: 24px;
+  top: 376px;
+  left: 20px;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .overlap-wrapper {
+  position: absolute;
+  width: 284px;
+  height: 416px;
+  top: 1436px;
+  left: 436px;
+}
+
+.main-page .div-wrapper {
+  position: absolute;
+  width: 240px;
+  height: 320px;
+  top: 20px;
+  left: 20px;
+  background-image: url("../images/image-24.png");
+  background-size: 100% 100%;
+}
+
+.main-page .overlap-group-wrapper {
+  position: absolute;
+  width: 248px;
+  height: 394px;
+  top: 874px;
+  left: 104px;
+}
+
+.main-page .overlap-4 {
+  position: relative;
+  width: 240px;
+  height: 394px;
+  background-color: #f5f5f5;
+}
+
+.main-page .text-wrapper-10 {
+  height: 24px;
+  top: 16px;
+  left: 165px;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .overlap-group-2 {
+  position: absolute;
+  width: 200px;
+  height: 270px;
+  top: 48px;
+  left: 20px;
+  background-image: url("../images/image-24.png");
+  background-size: 100% 100%;
+}
+
+.main-page .image-wrapper {
+  top: 234px;
+  left: 164px;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.main-page .text-wrapper-11 {
+  height: 24px;
+  top: 16px;
+  left: 20px;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .text-wrapper-12 {
+  top: 326px;
+  left: 20px;
+  position: absolute;
+  height: 24px;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.main-page .text-wrapper-13 {
+  height: 24px;
+  top: 354px;
+  left: 20px;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .item-2 {
+  position: absolute;
+  width: 248px;
+  height: 394px;
+  top: 874px;
+  left: 352px;
+}
+
+.main-page .text-wrapper-14 {
+  height: 24px;
+  top: 16px;
+  left: 161px;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .overlap-group-3 {
+  position: absolute;
+  width: 200px;
+  height: 270px;
+  top: 48px;
+  left: 20px;
+  background-image: url(https://c.animaapp.com/mac3lr3gzbnGtY/img/image-17.png);
+  background-size: 100% 100%;
+}
+
+.main-page .item-3 {
+  position: absolute;
+  width: 248px;
+  height: 394px;
+  top: 874px;
+  left: 600px;
+}
+
+.main-page .overlap-group-4 {
+  position: absolute;
+  width: 200px;
+  height: 270px;
+  top: 48px;
+  left: 20px;
+  background-image: url(https://c.animaapp.com/mac3lr3gzbnGtY/img/image-19.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.main-page .item-4 {
+  position: absolute;
+  width: 248px;
+  height: 394px;
+  top: 874px;
+  left: 848px;
+}
+
+.main-page .text-wrapper-15 {
+  height: 24px;
+  top: 16px;
+  left: 162px;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .overlap-group-5 {
+  position: absolute;
+  width: 200px;
+  height: 270px;
+  top: 48px;
+  left: 20px;
+  background-image: url(https://c.animaapp.com/mac3lr3gzbnGtY/img/image-21.png);
+  background-size: 100% 100%;
+}
+
+.main-page .text-wrapper-16 {
+  top: 326px;
+  left: 19px;
+  position: absolute;
+  height: 24px;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.main-page .text-wrapper-17 {
+  height: 24px;
+  top: 354px;
+  left: 19px;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .item-5 {
+  position: absolute;
+  width: 248px;
+  height: 394px;
+  top: 874px;
+  left: 1096px;
+}
+
+.main-page .overlap-group-6 {
+  position: absolute;
+  width: 200px;
+  height: 270px;
+  top: 48px;
+  left: 20px;
+  background-image: url(https://c.animaapp.com/mac3lr3gzbnGtY/img/image-22.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.main-page .text-wrapper-18 {
+  height: 24px;
+  top: 16px;
+  left: 163px;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .item-6 {
+  position: absolute;
+  width: 284px;
+  height: 416px;
+  top: 1436px;
+  left: 724px;
+}
+
+.main-page .overlap-group-7 {
+  position: absolute;
+  width: 240px;
+  height: 320px;
+  top: 20px;
+  left: 18px;
+  background-image: url(https://c.animaapp.com/mac3lr3gzbnGtY/img/image-25.png);
+  background-size: 100% 100%;
+}
+
+.main-page .text-wrapper-19 {
+  top: 348px;
+  left: 18px;
+  position: absolute;
+  height: 24px;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.main-page .text-wrapper-20 {
+  height: 24px;
+  top: 376px;
+  left: 18px;
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  position: absolute;
+  font-family: "Inria Serif", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.main-page .item-7 {
+  position: absolute;
+  width: 284px;
+  height: 416px;
+  top: 1436px;
+  left: 1012px;
+}
+
+.main-page .overlap-group-9 {
+  position: absolute;
+  width: 240px;
+  height: 320px;
+  top: 20px;
+  left: 20px;
+  background-image: url(https://c.animaapp.com/mac3lr3gzbnGtY/img/image-26.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}

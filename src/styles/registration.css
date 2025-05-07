@@ -1,0 +1,301 @@
+.background-image-1 {
+  width: 100%;
+  height: 100%;
+  background: url("../images/image.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 120px;
+  left: 6px;
+  overflow: hidden;
+}
+.registration-form {
+  width: 514px;
+  height: 749px;
+  opacity: 1;
+  position: absolute;
+  top: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+.background-1 {
+  width: 514px;
+  height: 749px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+.login-option-button {
+  width: 174px;
+  height: 52px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-family: Inria Serif;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+  background: rgba(255, 255, 255, 255);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: none;
+  text-align: center;
+}
+.login-container-1 {
+  width: 174px;
+  height: 52px;
+  opacity: 1;
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  overflow: hidden;
+}
+.registration-option-button {
+  width: 174px;
+  height: 52px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-family: Inria Serif;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+  background: rgba(230, 230, 230, 1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: none;
+  text-align: center;
+}
+.registration-container-1 {
+  width: 174px;
+  height: 52px;
+  opacity: 1;
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  overflow: hidden;
+}
+.registration-btn-container {
+  width: 297px;
+  height: 52px;
+  opacity: 1;
+  position: absolute;
+  top: 341px;
+  left: 108px;
+  overflow: hidden;
+}
+.registration-btn {
+  width: 297px;
+  height: 52px;
+  background: rgba(60, 193, 42, 0.7799999713897705);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: none;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 1);
+  font-family: Inria Serif;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: center;
+}
+.or-text {
+  width: 36px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 433px;
+  left: 239px;
+  font-family: Inria Serif;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.facebook-auth-btn-container {
+  width: 390px;
+  height: 46px;
+  opacity: 1;
+  position: absolute;
+  top: 503px;
+  left: 62px;
+  overflow: hidden;
+}
+.facebook-auth-btn {
+  width: 390px;
+  height: 46px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border: 1px solid rgba(130, 130, 130, 1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+.facebook-auth-icon {
+  width: 30px;
+  height: 30px;
+  background: url("../images/facebookAuth.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 8px;
+  left: 59px;
+  overflow: hidden;
+}
+.facebook-auth-text {
+  width: 230px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 8px;
+  right: 59px;
+  font-family: Inria Serif;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.google-auth-btn-container {
+  width: 390px;
+  height: 46px;
+  opacity: 1;
+  position: absolute;
+  top: 565px;
+  left: 62px;
+  overflow: hidden;
+}
+.google-auth-btn {
+  width: 390px;
+  height: 46px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border: 1px solid rgba(130, 130, 130, 1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
+}
+.google-auth-text {
+  width: 206px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 8px;
+  right: 71px;
+  font-family: Inria Serif;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.google-auth-icon {
+  width: 30px;
+  height: 30px;
+  background: url("../images/googleAuth.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 8px;
+  left: 71px;
+  overflow: hidden;
+}
+.registration-input-container {
+  width: 390px;
+  height: 46px;
+  position: absolute;
+  top: 169px;
+  left: 62px;
+}
+.password-input-container {
+  width: 390px;
+  height: 46px;
+  position: absolute;
+  top: 275px;
+  left: 62px;
+}
+.registration-input {
+  width: 100%;
+  height: 100%;
+  padding-left: 13px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(130, 130, 130, 1);
+  border-radius: 8px;
+  font-family: Inria Serif, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  opacity: 1;
+  outline: none;
+}
+.password-input {
+  width: 100%;
+  height: 100%;
+  padding-left: 13px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(130, 130, 130, 1);
+  border-radius: 8px;
+  font-family: Inria Serif, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  opacity: 1;
+  outline: none;
+}
+.registration-text {
+  width: 200px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 135px;
+  left: 62px;
+  font-family: Inria Serif;
+  font-weight: Regular;
+  font-size: 18px;
+  opacity: 1;
+  text-align: left;
+}
+.password-text {
+  width: 75px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 240px;
+  left: 62px;
+  font-family: Inria Serif;
+  font-weight: Regular;
+  font-size: 18px;
+  opacity: 1;
+  text-align: left;
+}
