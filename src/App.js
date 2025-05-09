@@ -8,7 +8,7 @@ import HelpPage from "./HelpPage";
 import Layout from "./Layout";
 import Registration from "./Registration";
 import RegistrationForm from "./RegistrationForm"; // додай цей імпорт
-
+import MainPage from "./MainPage";
 const clientId =
   "587875719115-mgdk3iaeh1t65f9uca8i8vlee2bql5f5.apps.googleusercontent.com";
 
@@ -46,6 +46,14 @@ const App = () => {
             element={
               <Layout>
                 <RegistrationForm />
+              </Layout>
+            }
+          />
+          <Route
+            path="/main-page"
+            element={
+              <Layout>
+                <MainPage />
               </Layout>
             }
           />
