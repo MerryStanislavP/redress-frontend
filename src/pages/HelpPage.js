@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/help-page.css";
+import "../styles/help-page.css";
 
 const HelpPage = () => {
   const [activeIndex, setActiveIndex] = useState(null);

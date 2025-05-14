@@ -1,41 +1,61 @@
 import React, { useState } from "react";
-import "./styles/registration.css";
 import { useNavigate } from "react-router-dom";
+import "../styles/login.css";
 
-const Registration = () => {
+const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleLoginClick = () => {
-    navigate("/");
+  const handleRegistrationClick = () => {
+    navigate("/registration");
   };
 
-  const handleRegistrationFormRedirect = () => {
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
     if (!email || !password) {
-      setErrorMessage("Будь ласка, введіть email та пароль.");
+      setErrorMessage("Будь ласка, заповніть усі поля.");
       return;
     }
 
-    // Передати email і пароль у форму (можна через state management або URL search params — тут через state):
-    navigate("/registration-form", { state: { email, password } });
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Вхід успішний:", data);
+        navigate("/main-page");
+      } else {
+        const error = await response.json();
+        setErrorMessage(error.message || "Невірний email або пароль.");
+      }
+    } catch (error) {
+      console.error("Помилка входу:", error);
+      setErrorMessage("Сталась помилка під час входу.");
+    }
   };
 
   return (
     <main>
-      <div className="background-image-1"></div>
-      <div className="registration-form">
-        <div className="background-1"></div>
+      <div className="background-image"></div>
+      <div className="login-form">
+        <div className="background"></div>
+        <span className="additional">Не можете увійти? Забули пароль?</span>
 
-        <div className="registration-btn-container">
+        <div className="login-btn-container">
           <button
             type="button"
-            className="registration-btn"
+            className="login-btn"
             id="loginBtn"
-            onClick={handleRegistrationFormRedirect}
+            onClick={(e) => handleLogin(e)}
           >
-            Зареєструватися
+            Увійти
           </button>
         </div>
 
@@ -46,54 +66,44 @@ const Registration = () => {
         )}
 
         <span className="or-text">або</span>
-
         <div className="facebook-auth-btn-container">
           <button className="facebook-auth-btn" id="facebookAuthBtn">
             <div className="facebook-auth-icon"></div>
             <span className="facebook-auth-text">Продовжити з Facebook</span>
           </button>
         </div>
-
         <div className="google-auth-btn-container">
           <button className="google-auth-btn" id="googleAuthBtn">
             <span className="google-auth-text">Продовжити з Google</span>
             <div className="google-auth-icon"></div>
           </button>
         </div>
-
-        <div className="login-container-1">
-          <button
-            type="button"
-            className="login-option-button"
-            onClick={handleLoginClick}
-          >
+        <div className="login-container">
+          <button type="button" className="login-option-btn">
             Вхід
           </button>
         </div>
-
-        <div className="registration-container-1">
+        <div className="registration-container">
           <button
             type="button"
-            className="registration-option-button"
+            className="registration-option-btn"
             id="registrationOptionBtn"
+            onClick={handleRegistrationClick}
           >
             Реєстрація
           </button>
         </div>
-
-        <span className="registration-text">Електронна пошта*</span>
+        <span className="login-text">Електронна пошта*</span>
         <span className="password-text">Пароль*</span>
-
-        <div className="registration-input-container">
+        <div className="login-input-container">
           <input
-            className="registration-input"
+            className="login-input"
             type="text"
             placeholder="Введіть email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-
         <div className="password-input-container">
           <input
             className="password-input"
@@ -108,4 +118,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default LoginPage;
