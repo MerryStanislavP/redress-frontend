@@ -30,7 +30,7 @@ export default function AdFormPage() {
 
   return (
     <main>
-      <div className="container">
+      <div className="container-1">
         <span className="ad-description">
           Якісно заповнене оголошення підвищує вірогідність продажу вашого
           товару
@@ -57,7 +57,7 @@ export default function AdFormPage() {
           maxLength={500}
         />
         <span className="ad-description-text-5">Виберіть розділ</span>
-        <div className={`container ${isModalOpen ? "blurred" : ""}`}>
+        <div className={`container-1 ${isModalOpen ? "blurred" : ""}`}>
           {!selectedCategory ? (
             <div className="sections-wrapper">
               <div
