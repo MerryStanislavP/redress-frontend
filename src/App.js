@@ -7,6 +7,7 @@ import Registration from "./pages/Registration";
 import RegistrationForm from "./pages/RegistrationForm"; // додай цей імпорт
 import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/LoginPage";
+import AdFormPage from "./pages/AdFormPage";
 import Header from "./components/Header";
 import FooterDynamic from "./components/FooterDynamic";
 const clientId =
@@ -23,6 +24,16 @@ const App = () => {
               <>
                 <Header />
                 <LoginPage />
+                <FooterDynamic />
+              </>
+            }
+          />
+          <Route
+            path="/ad-form"
+            element={
+              <>
+                <Header />
+                <AdFormPage />
                 <FooterDynamic />
               </>
             }
