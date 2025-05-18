@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import AdFormPage from "./pages/AdFormPage";
 import Header from "./components/Header";
 import FooterDynamic from "./components/FooterDynamic";
+import CatalogPage from "./pages/CatalogPage";
 const clientId =
   "587875719115-mgdk3iaeh1t65f9uca8i8vlee2bql5f5.apps.googleusercontent.com";
 
@@ -74,6 +75,16 @@ const App = () => {
               <>
                 <Header />
                 <MainPage />
+                <FooterDynamic />
+              </>
+            }
+          />
+          <Route
+            path="/catalog-page"
+            element={
+              <>
+                <Header />
+                <CatalogPage />
                 <FooterDynamic />
               </>
             }
