@@ -40,6 +40,7 @@ body {
   top: 0px;
   left: 0px;
   overflow: hidden;
+  cursor: pointer;
 }
 .like-icon {
   width: 25px;
@@ -53,6 +54,7 @@ body {
   top: 5px;
   left: 152px;
   overflow: hidden;
+  cursor: pointer;
 }
 .profile-icon {
   width: 36px;
@@ -66,6 +68,7 @@ body {
   top: 0px;
   left: 76px;
   overflow: hidden;
+  cursor: pointer;
 }
 .help-icon {
   width: 30px;
@@ -94,6 +97,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   overflow: hidden;
+  cursor: pointer;
 }
 .menu {
   width: 283px;
@@ -118,6 +122,7 @@ body {
   font-size: 20px;
   opacity: 1;
   text-align: left;
+  cursor: pointer;
 }
 .she-option {
   width: 50px;
@@ -130,6 +135,7 @@ body {
   font-size: 20px;
   opacity: 1;
   text-align: left;
+  cursor: pointer;
 }
 .children-option {
   width: 42px;
@@ -142,4 +148,5 @@ body {
   font-size: 20px;
   opacity: 1;
   text-align: left;
+  cursor: pointer;
 }
