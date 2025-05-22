@@ -1,0 +1,110 @@
+.product-seller-container {
+  position: relative;
+  max-width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.order-title {
+  width: 366px;
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inria Serif", serif;
+  font-weight: 400; /* замість "Regular", бо це некоректне значення */
+  font-size: 32px;
+  opacity: 1;
+  text-align: left;
+  margin: 160px 0 0 89px; /* верхній відступ 148px, лівий зсув на 50px лівіше від попереднього (139 - 50) */
+}
+
+.product-card {
+  width: 100%;
+  max-width: 788px;
+  height: 162px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.52);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 70px 0 0 89px;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex; /* Робимо flex-контейнер */
+  align-items: center; /* Вертикальне вирівнювання всередині блоку */
+  gap: 1rem; /* Відстань між фото та текстом */
+}
+
+.product-image {
+  width: 80px;
+  height: 107px;
+  background: url("../images/order-page/v599_45.png") no-repeat center center;
+  background-size: cover;
+  opacity: 1;
+  flex-shrink: 0; /* Забороняємо фото стискатись */
+}
+
+.product-image {
+  width: 80px;
+  height: 107px;
+  background: url("../images/order-page/v599_45.png") no-repeat center center;
+  background-size: cover;
+  opacity: 1;
+  flex-shrink: 0; /* Забороняємо фото стискатись */
+}
+
+.product-price {
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-size: 18px;
+  opacity: 1;
+}
+
+.seller-label {
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-size: 18px;
+  opacity: 1;
+  /* margin: 0; можна додати, якщо є зайві відступи */
+}
+
+.seller-avatar {
+  width: 30px;
+  height: 30px;
+  position: relative; /* можна залишити, якщо потрібно для .avatar-icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seller-avatar {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.avatar-icon {
+  width: 30px;
+  height: 30px; /* Змінив висоту, щоб співпадало з контейнером */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: static; /* прибираємо абсолютне позиціювання */
+  overflow: hidden;
+}
+
+.seller-name {
+  color: rgba(0, 0, 0, 1);
+  font-family: "Inria Serif", serif;
+  font-weight: 700;
+  font-size: 18px;
+  opacity: 1;
+  margin: 0; /* на випадок, якщо є дефолтні відступи */
+}
+
+.seller-info {
+  display: flex;
+  align-items: center; /* Вирівнюємо всі елементи по вертикалі по центру */
+  margin: 40px 0 0 89px;
+  gap: 10px;
+}

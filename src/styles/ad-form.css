@@ -98,13 +98,13 @@ main {
   text-align: left;
 }
 .ad-description-text-3 {
-  width: 272px;
+  width: 400px;
   color: rgba(0, 0, 0, 1);
   top: 522px;
   left: 168px;
   font-family: Inria Serif;
   font-weight: Regular;
-  font-size: clamp(16px, 1.5vw, 24px);
+  font-size: clamp(16px, 1.5vw, 20px);
   opacity: 1;
   text-align: left;
 }
@@ -129,7 +129,7 @@ main {
   left: 168px;
   font-family: Inria Serif;
   font-weight: Regular;
-  font-size: 20px;
+  font-size: clamp(16px, 1.5vw, 20px);
   opacity: 1;
   text-align: left;
 }
@@ -389,4 +389,66 @@ main {
   font-size: 14px;
   color: green;
   font-weight: bold;
+}
+
+/* Стилі для додаткових полів аукціону */
+.auction-fields {
+  margin: 10px 0;
+}
+
+.auction-fields input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.ad-description-text-10 {
+  width: 361px;
+  color: rgba(0, 0, 0, 1);
+  font-family: Inria Serif;
+  font-weight: Regular;
+  font-size: clamp(20px, 1.5vw, 26px);
+  opacity: 1;
+  text-align: left;
+  display: block;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Стилі для блоку з ціною (як у оригіналі) */
+.pay-container-block-1 {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-family: "Inria Serif", sans-serif;
+  font-size: 16px;
+  height: 100%;
+  padding: 0 4px;
+  box-sizing: border-box;
+  background: transparent;
+  color: #000;
+  cursor: text;
+  padding-left: 12px;
+  border: 1px solid rgba(130, 130, 130, 1);
+  border-radius: 8px;
+  width: 295px;
+}
+
+.pay-container-block-1 .price-input {
+  flex-grow: 1;
+  border: none;
+  padding: 8px 0;
+  font-size: 16px;
+  height: 40px;
+}
+
+.pay-container-block-1 .price-input:focus {
+  outline: none;
+}
+
+.pay-container-block-1 .currency-label {
+  padding-left: 5px;
+  color: rgba(0, 0, 0, 1);
 }

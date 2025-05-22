@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/ad-type.css";
 
-export default function AdType() {
+export default function AdType({ onTypeChange }) {
   const [selectedType, setSelectedType] = useState(null);
 
   const options = [
@@ -19,6 +19,11 @@ export default function AdType() {
     },
   ];
 
+  const handleTypeSelect = (id) => {
+    setSelectedType(id);
+    onTypeChange(id); // Передаємо вибраний тип у батьківський компонент
+  };
+
   return (
     <div className="type-selection">
       {options.map(({ id, label, iconClass, containerClass }) => {
@@ -27,7 +32,7 @@ export default function AdType() {
           <div
             key={id}
             className={containerClass}
-            onClick={() => setSelectedType(id)}
+            onClick={() => handleTypeSelect(id)}
             style={{ cursor: "pointer" }}
           >
             <div className={`${iconClass} ${isSelected ? "selected" : ""}`}>

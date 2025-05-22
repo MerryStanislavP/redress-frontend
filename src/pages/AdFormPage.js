@@ -3,6 +3,7 @@ import ColorOptions from "../components/ColorOptions";
 import CategoryModal from "../components/CategoryModal";
 import AdType from "../components/AdType";
 import BrandSelector from "../components/BrandSelector";
+import SizeSelector from "../components/SizeSelector";
 import React, { useState } from "react";
 
 export default function AdFormPage() {
@@ -10,6 +11,10 @@ export default function AdFormPage() {
   const [selectedSection, setSelectedSection] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+  const [adType, setAdType] = useState(null);
+  const [endDate, setEndDate] = useState("");
+  const [minBid, setMinBid] = useState("");
 
   const handleSectionClick = (section) => {
     setSelectedSection(section);
@@ -24,6 +29,7 @@ export default function AdFormPage() {
     setSelectedCategory(category);
     setSelectedSubcategory(subcategory);
     setIsModalOpen(false);
+    setSelectedSize(""); // Скидаємо вибраний розмір при зміні категорії
   };
 
   const [selectedBrand, setSelectedBrand] = useState("");
@@ -119,18 +125,25 @@ export default function AdFormPage() {
           />
         )}
 
+        <SizeSelector
+          category={selectedCategory}
+          selectedSize={selectedSize}
+          onSelect={setSelectedSize}
+        />
+
         <span className="ad-description-text-6">Бренд*</span>
         <BrandSelector
           selectedBrand={selectedBrand}
           onSelect={(brand) => setSelectedBrand(brand)}
         />
+
         <span className="ad-description-text-7">Виберіть до 2 відтінків</span>
         <ColorOptions />
         <span className="ad-description-text-8">Вкажіть ціну</span>
         <div className="pay-container">
           <div className="pay-container-block">
             <input
-              type="text"
+              type="number"
               className="price-input"
               placeholder="Введіть суму"
               // для управления состоянием можно добавить value и onChange, если нужно
@@ -141,7 +154,36 @@ export default function AdFormPage() {
           <span className="pay-text">Оплата</span>
         </div>
         <span className="ad-description-text-9">Оберіть тип оголошення</span>
-        <AdType />
+        <AdType onTypeChange={setAdType} />
+
+        {/* Додаткові поля для аукціону */}
+        {adType === "auction" && (
+          <>
+            <div className="auction-fields">
+              <span className="ad-description-text-10">Дата закінчення*</span>
+              <input
+                type="datetime-local"
+                className="input-line"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
+            </div>
+            <div className="auction-fields">
+              <span className="ad-description-text-10">Мінімальна ставка*</span>
+              <div className="pay-container-block-1">
+                <input
+                  type="number"
+                  className="price-input"
+                  placeholder="Введіть суму"
+                  value={minBid}
+                  onChange={(e) => setMinBid(e.target.value)}
+                />
+                <span className="currency-label">грн</span>
+              </div>
+            </div>
+          </>
+        )}
+
         <div className="btn-container">
           <span className="btn-text">Завантажити оголошення</span>
         </div>
