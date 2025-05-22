@@ -14,6 +14,8 @@ import CatalogPage from "./pages/CatalogPage";
 import ProductPage from "./pages/ProductPage";
 import OrderPage from "./pages/OrderPage";
 
+import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
 const clientId =
   "587875719115-mgdk3iaeh1t65f9uca8i8vlee2bql5f5.apps.googleusercontent.com";
 
@@ -102,11 +104,31 @@ const App = () => {
             }
           />
           <Route
-            path="/catalog-page"
+            path="/catalog-page/:sex"
             element={
               <>
                 <Header />
                 <CatalogPage />
+                <FooterDynamic />
+              </>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <>
+                <Header />
+                <Profile />
+                <FooterDynamic />
+              </>
+            }
+          />
+          <Route
+            path="/edit-profile-page"
+            element={
+              <>
+                <Header />
+                <EditProfile />
                 <FooterDynamic />
               </>
             }

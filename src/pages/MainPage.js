@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/main-page.css";
 import ProductList from "../components/ProductList";
 import AuctionList from "../components/AuctionList";
+import { useNavigate } from 'react-router-dom';
 import dressImg from "../images/main-page/v30_108.png";
 
 export default function MainPage() {
@@ -64,6 +65,13 @@ export default function MainPage() {
       likeIcon: "../images/like.png",
     },
   ];
+
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (sex) => {
+    navigate(`/catalog-page/${sex}`);
+  };
+
   return (
     <>
       <link
@@ -72,13 +80,13 @@ export default function MainPage() {
       />
       <div className="gallery-wrapper">
         <div className="gallery">
-          <div className="image-block image-woman">
+          <div className="image-block image-woman" onClick={() => handleCategoryClick('female')}>
             <span className="label">Вона</span>
           </div>
-          <div className="image-block image-man">
+          <div className="image-block image-man" onClick={() => handleCategoryClick('male')}>
             <span className="label">Він</span>
           </div>
-          <div className="image-block image-kids">
+          <div className="image-block image-kids" onClick={() => handleCategoryClick('kids')}>
             <span className="label">Діти</span>
           </div>
         </div>
