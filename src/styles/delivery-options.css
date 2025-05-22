@@ -1,7 +1,24 @@
-.delivery-option {
-  margin: 20px 0;
+
+
+.delivery-title {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 28px;
+  color: #000;
+}
+
+.delivery-options {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  max-width: 415px;
+  /* margin-top: 28px; */
+}
+
+.delivery-option {
+  display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .delivery-option input[type="radio"] {
@@ -14,6 +31,7 @@
   outline: none;
   cursor: pointer;
   position: relative;
+  flex-shrink: 0;
 }
 
 .delivery-option input[type="radio"]:checked::before {
@@ -36,6 +54,7 @@
   cursor: pointer;
   margin-bottom: 8px;
 }
+
 .delivery-input {
   margin-top: 8px; /* Зменшено відступ перед полем вводу */
   padding: 8px;
@@ -46,25 +65,7 @@
   border-radius: 8px;
   box-sizing: border-box;
 }
-.v599_53 {
-  width: 126px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 477px;
-  left: 139px;
-  font-family: Inria Serif;
-  font-weight: Regular;
-  font-size: 28px;
-  opacity: 1;
-  text-align: left;
-}
-.v599_55 {
-  width: 415px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 546px;
-  left: 139px;
+
+.delivery-input::placeholder {
+  color: #828282;
 }

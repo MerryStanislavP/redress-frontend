@@ -9,22 +9,33 @@ const OrderSummary = ({
   totalPrice = "880 грн",
 }) => {
   return (
-    <div className="order-summary">
-      <span className="v599_88">Разом</span>
-      <span className="v599_89">Товар на суму:</span>
-      <span className="v599_90">{productPrice}</span>
-      <span className="v599_91">Вартість доставки:</span>
-      <span className="v599_92">{deliveryPrice}</span>
-      <span className="v599_93">До сплати:</span>
-      <span className="v599_94">{totalPrice}</span>
-
-      <div className="v599_95">
-        <div className="v599_96">
-          <div className="v599_97"></div>
+    <div className="summary-card">
+      <span className="summary-title">Разом</span>
+      
+      <div className="summary-section">
+        <div className="summary-row">
+          <span className="summary-label">Товар на суму:</span>
+          <span className="summary-value">{productPrice}</span>
         </div>
       </div>
 
-      <span className="v1215_2">Сплатити</span>
+      <div className="summary-section">
+        <div className="summary-row">
+          <span className="summary-label">Вартість доставки:</span>
+          <span className="summary-value">{deliveryPrice}</span>
+        </div>
+      </div>
+
+      <div className="total-section">
+        <div className="summary-row">
+          <span className="total-label">До сплати:</span>
+          <span className="total-value">{totalPrice}</span>
+        </div>
+      </div>
+
+      <button className="pay-button">
+        Сплатити
+      </button>
     </div>
   );
 };

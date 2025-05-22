@@ -1,7 +1,7 @@
 // components/ProductSellerInfo.js
 import React from "react";
 import PropTypes from "prop-types";
-import "../styles/product-seller-info.css";
+import "../styles/product-seller-info.css"
 
 const ProductSellerInfo = ({
   productName = "Жакет строгий на гудзиках Mango",
@@ -11,22 +11,23 @@ const ProductSellerInfo = ({
   return (
     <div className="product-seller-container">
       <span className="order-title">Оформити замовлення</span>
-
-      <div className="seller-info">
+      
+      <div className="seller-info-container">
         <span className="seller-label">Продавець:</span>
-        <div className="seller-avatar">
-          <div className="avatar-background"></div>
-          <div className="avatar-icon"></div>
+        <div className="seller-block">
+          <div className="seller-avatar">
+            <div className="avatar-icon"></div>
+          </div>
+          <span className="seller-nickname">{sellerName}</span>
         </div>
-        <span className="seller-name">{sellerName}</span>
       </div>
 
       <div className="product-card">
-        <div className="product-image"></div>
-        <div className="product-details">
+        <div className="product-content">
+          <div className="product-image"></div>
           <span className="product-name">{productName}</span>
-          <span className="product-price">{price}</span>
         </div>
+        <span className="product-price">{price}</span>
       </div>
     </div>
   );

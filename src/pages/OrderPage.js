@@ -8,6 +8,7 @@ import OrderSummary from "../components/OrderSummary";
 const OrderPage = () => {
   return (
     <div className="order-container">
+      <div className="order-info">
       <ProductSellerInfo
         productName="Жакет строгий на гудзиках Mango"
         price="880 грн"
@@ -16,6 +17,7 @@ const OrderPage = () => {
 
       <DeliveryOptions />
       <RecipientInfo />
+      </div>
 
       <OrderSummary
         productPrice="880 грн"

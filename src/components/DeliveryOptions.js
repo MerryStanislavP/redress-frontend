@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import "../styles/delivery-options.css";
 
 const deliveryOptions = [
+  { id: "seller", label: "Самовивіз від продавця" },
   { id: "ukrposhta", label: "Самовивіз з Укр пошти" },
   { id: "nova-poshta-machine", label: "Самовивіз з поштомата Нової пошти" },
   { id: "nova-poshta", label: "Самовивіз з Нової пошти" },
-  { id: "seller", label: "Самовивіз від продавця" },
 ];
 
 const DeliveryOptions = () => {
@@ -17,9 +17,9 @@ const DeliveryOptions = () => {
   };
 
   return (
-    <div>
-      <span className="v599_53">Доставка</span>
-      <div className="v599_55">
+    <div className="delievery-container">
+      <h2 className="delivery-title">Доставка</h2>
+      <div className="delivery-options">
         {deliveryOptions.map((option) => (
           <div key={option.id} className="delivery-option">
             <label>
@@ -31,7 +31,7 @@ const DeliveryOptions = () => {
               />
               {option.label}
             </label>
-            {selectedOption === option.id && (
+            {selectedOption === option.id && selectedOption !== "seller" &&(
               <input
                 type="text"
                 placeholder="Введіть номер відділення"
