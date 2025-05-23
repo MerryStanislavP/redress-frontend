@@ -4,9 +4,9 @@ import "../styles/recipient-info.css";
 
 const RecipientInfo = () => {
   const [formData, setFormData] = useState({
-    lastName: "Сіренко",
-    firstName: "Кіра",
-    middleName: "Антонівна",
+    lastName: "",
+    firstName: "",
+    middleName: "",
     phone: "+380974567891",
   });
 
@@ -94,74 +94,76 @@ const RecipientInfo = () => {
   };
 
   return (
-    <div className="recipient-info">
-      <span className="v599_70">Отримувач</span>
+    <div className="recipient-container">
+      <h2 className="recipient-title">Отримувач</h2>
+      
+      <div className="recipient-fields">
+        <div className="fields-row">
+          <div className="field-group">
+            <label className="field-label">Прізвище*</label>
+            <div className="field-input-wrapper">
+              <input
+                type="text"
+                className={`field-input ${errors.lastName ? "error" : ""}`}
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Введіть ваше прізвище"
+              />
+              {errors.lastName && <span className="error-message">{errors.lastName}</span>}
+            </div>
+          </div>
 
-      <div className="field-group">
-        <span className="v599_74">Прізвище:</span>
-        <div className="v599_71">
-          <input
-            type="text"
-            className={`v599_72 ${errors.lastName ? "error" : ""}`}
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.lastName && (
-            <span className="error-message">{errors.lastName}</span>
-          )}
+          <div className="field-group">
+            <label className="field-label">Ім'я*</label>
+            <div className="field-input-wrapper">
+              <input
+                type="text"
+                className={`field-input ${errors.firstName ? "error" : ""}`}
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Введіть ваше ім'я"
+              />
+              {errors.firstName && <span className="error-message">{errors.firstName}</span>}
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="field-group">
-        <span className="v599_82">Ім'я:</span>
-        <div className="v599_79">
-          <input
-            type="text"
-            className={`v599_80 ${errors.firstName ? "error" : ""}`}
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.firstName && (
-            <span className="error-message">{errors.firstName}</span>
-          )}
-        </div>
-      </div>
+        <div className="fields-row">
+          <div className="field-group">
+            <label className="field-label">По батькові</label>
+            <div className="field-input-wrapper">
+              <input
+                type="text"
+                className={`field-input ${errors.middleName ? "error" : ""}`}
+                name="middleName"
+                value={formData.middleName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Введіть по батькові (необов'язково)"
+              />
+              {errors.middleName && <span className="error-message">{errors.middleName}</span>}
+            </div>
+          </div>
 
-      <div className="field-group">
-        <span className="v599_86">По батькові:</span>
-        <div className="v599_83">
-          <input
-            type="text"
-            className={`v599_84 ${errors.middleName ? "error" : ""}`}
-            name="middleName"
-            value={formData.middleName}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.middleName && (
-            <span className="error-message">{errors.middleName}</span>
-          )}
-        </div>
-      </div>
-
-      <div className="field-group">
-        <span className="v599_78">Мобільний телефон:</span>
-        <div className="v599_75">
-          <input
-            type="tel"
-            className={`v599_76 ${errors.phone ? "error" : ""}`}
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.phone && (
-            <span className="error-message">{errors.phone}</span>
-          )}
+          <div className="field-group">
+            <label className="field-label">Телефон*</label>
+            <div className="field-input-wrapper">
+              <input
+                type="tel"
+                className={`field-input ${errors.phone ? "error" : ""}`}
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="+380XXXXXXXXX"
+              />
+              {errors.phone && <span className="error-message">{errors.phone}</span>}
+            </div>
+          </div>
         </div>
       </div>
     </div>
