@@ -60,13 +60,13 @@
   align-items: center;
 }
 
-.arrow {
+.arrows {
   margin-left: 10px;
   font-size: 16px;
   transition: transform 0.3s ease;
 }
 
-.arrow.open {
+.arrows.open {
   transform: rotate(180deg);
 }
 

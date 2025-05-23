@@ -49,7 +49,7 @@ const HelpPage = () => {
               <h3 onClick={() => toggleAnswer(index)} className="faq-question">
                 {item.question}
                 <span
-                  className={`arrow ${activeIndex === index ? "open" : ""}`}
+                  className={`arrows ${activeIndex === index ? "open" : ""}`}
                 >
                   ▼
                 </span>
