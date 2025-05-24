@@ -3,7 +3,7 @@ import "../styles/product-card.css";
 
 const ProductCard = ({ price, title, imageUrl }) => {
   return (
-    <div className="product-card">
+    <div className="product-card-m">
       <div className="v46_164">
         <div className="v31_86"></div>
         <div

@@ -18,28 +18,15 @@
   padding-right: 20px;
 }
 
-.auction-card__label {
-  font-family: Inria Serif;
-  font-weight: regular;
+.auction-label-card {
+  color: rgba(255, 0, 0, 1);
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
   font-size: 16px;
-  text-align: left;
-}
-
-.auction-card__timer-block {
-  text-align: right;
-}
-
-.auction-card__time-left {
-  font-family: Inria Serif;
-  font-weight: regular;
-  font-size: 16px;
-}
-
-.auction-card__timer {
-  font-family: Inria Serif;
-  font-weight: regular;
-  font-size: 16px;
-  margin-top: 8px;
+  font-style: italic;
+  padding: 2px 6px;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 4px;
 }
 
 .auction-card__image {

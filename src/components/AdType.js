@@ -21,7 +21,9 @@ export default function AdType({ onTypeChange }) {
 
   const handleTypeSelect = (id) => {
     setSelectedType(id);
-    onTypeChange(id); // Передаємо вибраний тип у батьківський компонент
+    if (onTypeChange) {
+      onTypeChange(id); // тепер без помилки
+    }
   };
 
   return (

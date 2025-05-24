@@ -31,7 +31,7 @@ const DeliveryOptions = () => {
               />
               {option.label}
             </label>
-            {selectedOption === option.id && selectedOption !== "seller" &&(
+            {selectedOption === option.id && selectedOption !== "seller" && (
               <input
                 type="text"
                 placeholder="Введіть номер відділення"

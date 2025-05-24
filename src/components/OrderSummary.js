@@ -1,4 +1,3 @@
-// components/OrderSummary.js
 import React from "react";
 import PropTypes from "prop-types";
 import "../styles/order-summary.css";
@@ -7,11 +6,12 @@ const OrderSummary = ({
   productPrice = "880 грн",
   deliveryPrice = "За тарифами перевізника",
   totalPrice = "880 грн",
+  onPayClick,
 }) => {
   return (
     <div className="summary-card">
       <span className="summary-title">Разом</span>
-      
+
       <div className="summary-section">
         <div className="summary-row">
           <span className="summary-label">Товар на суму:</span>
@@ -33,7 +33,7 @@ const OrderSummary = ({
         </div>
       </div>
 
-      <button className="pay-button">
+      <button className="pay-button" onClick={onPayClick}>
         Сплатити
       </button>
     </div>
@@ -44,6 +44,7 @@ OrderSummary.propTypes = {
   productPrice: PropTypes.string,
   deliveryPrice: PropTypes.string,
   totalPrice: PropTypes.string,
+  onPayClick: PropTypes.func.isRequired,
 };
 
 export default OrderSummary;
