@@ -13,6 +13,7 @@ import FooterDynamic from "./components/FooterDynamic";
 import CatalogPage from "./pages/CatalogPage";
 import ProductPage from "./pages/ProductPage";
 import OrderPage from "./pages/OrderPage";
+import SellerPage from "./pages/SellerPage";
 
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
@@ -130,6 +131,16 @@ const App = () => {
               <>
                 <Header />
                 <EditProfile />
+                <FooterDynamic />
+              </>
+            }
+          />
+          <Route
+            path="/seller/:profileId"
+            element={
+              <>
+                <Header />
+                <SellerPage />
                 <FooterDynamic />
               </>
             }

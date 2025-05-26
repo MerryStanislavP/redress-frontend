@@ -296,3 +296,46 @@ export const demoUsers = {
     phoneNumber: '+380991234567'
   }
 };
+
+
+// demoData.js
+export const demoFeedbackData = [
+  { id: '1', rating: 5, comment: 'Чудовий продавець!', createdAt: '2023-05-15T10:30:00Z' },
+  { id: '2', rating: 4, comment: 'Якісний товар', createdAt: '2023-04-22T14:15:00Z' },
+  { id: '3', rating: 5, comment: 'Рекомендую!', createdAt: '2023-03-10T09:45:00Z' },
+  { id: '4', rating: 3, comment: 'Були невеликі проблеми', createdAt: '2023-02-28T16:20:00Z' },
+  { id: '5', rating: 5, comment: 'Супер!', createdAt: '2023-01-15T11:10:00Z' },
+  { id: '6', rating: 4, comment: 'Швидка доставка', createdAt: '2022-12-05T08:15:00Z' },
+  { id: '7', rating: 5, comment: 'Все сподобалось', createdAt: '2022-11-20T13:45:00Z' },
+  { id: '8', rating: 2, comment: 'Не відповідає опису', createdAt: '2022-10-10T17:30:00Z' },
+  { id: '9', rating: 5, comment: 'Ідеальна покупка', createdAt: '2022-09-01T09:20:00Z' },
+  { id: '10', rating: 4, comment: 'Гарне співвідношення ціна/якість', createdAt: '2022-08-15T14:10:00Z' }
+];
+
+export const demoFavoritesData = [
+  { id: '101', title: 'Смартфон Samsung Galaxy S21', price: 18999, isAuction: false, url: 'https://example.com/phone.jpg' },
+  { id: '102', title: 'Ноутбук ASUS VivoBook 15', price: 24999, isAuction: true, url: 'https://example.com/laptop.jpg' },
+  { id: '103', title: 'Навушники Sony WH-1000XM4', price: 8999, isAuction: false, url: 'https://example.com/headphones.jpg' },
+  { id: '104', title: 'Фотоапарат Canon EOS R6', price: 58999, isAuction: false, url: 'https://example.com/camera.jpg' },
+  { id: '105', title: 'Монітор Dell 27"', price: 12999, isAuction: false, url: 'https://example.com/monitor.jpg' },
+  { id: '106', title: 'Мишка Logitech MX Master', price: 2499, isAuction: false, url: 'https://example.com/mouse.jpg' },
+  { id: '107', title: 'Клавіатура Keychron K8', price: 3499, isAuction: false, url: 'https://example.com/keyboard.jpg' },
+  { id: '108', title: 'SSD Samsung 1TB', price: 3999, isAuction: false, url: 'https://example.com/ssd.jpg' },
+  { id: '109', title: 'Powerbank Xiaomi 20000mAh', price: 1499, isAuction: false, url: 'https://example.com/powerbank.jpg' },
+  { id: '110', title: 'Кава-машина DeLonghi', price: 15999, isAuction: false, url: 'https://example.com/coffee.jpg' }
+];
+
+export const getPaginatedData = (allItems, page, pageSize) => {
+  const startIndex = (page - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  const items = allItems.slice(startIndex, endIndex);
+  
+  return {
+    items,
+    totalCount: allItems.length,
+    page,
+    pageSize,
+    totalPages: Math.ceil(allItems.length / pageSize),
+    hasNextPage: endIndex < allItems.length
+  };
+};

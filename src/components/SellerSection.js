@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/seller-section.css";
 import { fetchProfileDetails, fetchUserDetails } from "../api/listing";
 
@@ -7,15 +8,38 @@ const SellerSection = ({ profileId }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   const loadSellerData = async () => {
+  //     try {
+  //       // Завантажуємо дані профілю
+  //       const profileData = await fetchProfileDetails(profileId);
+  //       setProfile(profileData);
+
+  //       // Якщо є userId, завантажуємо дані користувача
+  //       if (profileData.userId) {
+  //         const userData = await fetchUserDetails(profileData.userId);
+  //         setUser(userData);
+  //       }
+  //     } catch (err) {
+  //       setError(err.message);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   if (profileId) {
+  //     loadSellerData();
+  //   }
+  // }, [profileId]);
 
   useEffect(() => {
     const loadSellerData = async () => {
       try {
-        // Завантажуємо дані профілю
         const profileData = await fetchProfileDetails(profileId);
         setProfile(profileData);
 
-        // Якщо є userId, завантажуємо дані користувача
         if (profileData.userId) {
           const userData = await fetchUserDetails(profileData.userId);
           setUser(userData);
@@ -32,6 +56,18 @@ const SellerSection = ({ profileId }) => {
     }
   }, [profileId]);
 
+  const handleViewSeller = () => {
+    if (profile && user) {
+      // Зберігаємо дані продавця в localStorage
+      localStorage.setItem('currentSellerProfile', JSON.stringify({
+        profile,
+        user
+      }));
+      navigate(`/seller/${profileId}`);
+    }
+  };
+
+
   if (loading) return <div className="loading">Завантаження даних продавця...</div>;
   if (error) return <div className="error">Помилка: {error}</div>;
 
@@ -44,7 +80,7 @@ const SellerSection = ({ profileId }) => {
   };
 
   return (
-    <div className="seller-section">
+    <div className="seller-section" onClick={handleViewSeller} style={{ cursor: 'pointer' }}>
       <div className="section-bg">
         <span className="section-title-2">Продавець</span>
         <div className="seller-info">

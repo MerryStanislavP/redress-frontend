@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchProfile } from '../api/profile';
 import '../styles/user-info.css';
 
-const UserInfoComponent = () => {
+const UserInfoComponent = ({ createdAt, location }) => {
   const [userInfo, setUserInfo] = useState({
     createdAt: new Date(),
     location: 'Харків'
