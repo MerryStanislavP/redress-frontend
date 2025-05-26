@@ -126,7 +126,7 @@ const { data: profileData, isLoading, error } = useQuery({
               </span>
             </div>
             <div className="location-wrapper">
-              <div className="location-icon">📍</div>
+              <div className="location-ico">📍</div>
               <span className="location">{profileData?.latitude}</span>
             </div>
           </div>

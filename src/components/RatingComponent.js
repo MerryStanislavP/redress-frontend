@@ -100,9 +100,9 @@ const RatingComponent = () => {
     return (
         <div className="rating-wrapper">
           <div className="rating">
-            <div className="star">⭐</div>
+            <div className="star-icon">⭐</div>
             <span className="average-rating">{data.rating?.toFixed(1) || '0.0'}</span>
-            <span className="rating-count">{data.count || 0} {getRatingText(data.count)}</span>
+            <span className="rating-counts">{data.count || 0} {getRatingText(data.count)}</span>
           </div>
           <div className="status">
             <div className="status-icon">👑</div>

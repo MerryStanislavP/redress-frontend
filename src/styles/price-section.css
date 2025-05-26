@@ -71,6 +71,7 @@
   top: 88px;
   left: 104px;
   overflow: hidden;
+  cursor: pointer;
 }
 .btn-bg {
   width: 260px;

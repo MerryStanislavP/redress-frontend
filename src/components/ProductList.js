@@ -4,7 +4,7 @@ import "../styles/product-list.css";
 
 const ProductList = ({ products }) => {
   return (
-    <div className="product-container">
+    <div className="products-container">
       {products.map((product, index) => (
         <ProductCard
           key={index}

@@ -1,9 +1,10 @@
 import React from "react";
 import "../styles/сatalog-card.css";
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import fallbackImage from '../images/main-page/v31_67.png';
 
-const CatalogCard = ({ price, title, imageUrl, isAuction }) => {
+const CatalogCard = ({ id, price, title, imageUrl, isAuction }) => {
   const [currentImage, setCurrentImage] = useState(imageUrl);
   const [imgError, setImgError] = useState(false);
 
@@ -12,6 +13,7 @@ const CatalogCard = ({ price, title, imageUrl, isAuction }) => {
   };
 
   return (
+    <Link to={`/product/${id}`} className="catalog-card-link">
     <div className="catalog-card">
       <div className="card-container">
         <div className="card-background"></div>
@@ -52,7 +54,8 @@ const CatalogCard = ({ price, title, imageUrl, isAuction }) => {
           <div className="like-icon2"></div>
         </div>
       </div>
-    </div>
+      </div>
+      </Link>
   );
 };
 

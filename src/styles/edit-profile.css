@@ -1,5 +1,6 @@
 .edit-container {
     margin-bottom: 120px;
+    align-items: center;
 }
 
 .header {
@@ -108,5 +109,13 @@
 }
 
 .btn-wrapper {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
+
+.back-link {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #000; }

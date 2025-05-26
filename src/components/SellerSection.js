@@ -1,25 +1,82 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/seller-section.css";
+import { fetchProfileDetails, fetchUserDetails } from "../api/listing";
 
-const SellerSection = () => {
+const SellerSection = ({ profileId }) => {
+  const [profile, setProfile] = useState(null);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const loadSellerData = async () => {
+      try {
+        // Завантажуємо дані профілю
+        const profileData = await fetchProfileDetails(profileId);
+        setProfile(profileData);
+
+        // Якщо є userId, завантажуємо дані користувача
+        if (profileData.userId) {
+          const userData = await fetchUserDetails(profileData.userId);
+          setUser(userData);
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (profileId) {
+      loadSellerData();
+    }
+  }, [profileId]);
+
+  if (loading) return <div className="loading">Завантаження даних продавця...</div>;
+  if (error) return <div className="error">Помилка: {error}</div>;
+
+  const getRatingStatusText = (status) => {
+    switch (status) {
+      case 'Reliable': return 'Надійний продавець';
+      case 'Verified': return 'Перевірений продавець';
+      default: return 'Новий продавець';
+    }
+  };
+
   return (
     <div className="seller-section">
       <div className="section-bg">
         <span className="section-title-2">Продавець</span>
         <div className="seller-info">
-          <div className="seller-avatar">
-            <div className="avatar-bg"></div>
+          <div className="seller-avatar-2">
+            <div 
+              className="avatar-bg"
+              style={{ 
+                backgroundImage: profile?.profileImage?.url 
+                  ? `url(${profile.profileImage.url})` 
+                  : 'none' 
+              }}
+            ></div>
           </div>
           <div className="seller-text">
-            <span className="seller-name">ketrin28</span>
-            <div className="seller-rating">
-              <div className="star"></div>
-              <span className="rating-count">65 оцінок</span>
-            </div>
-            <div className="trusted-seller">
-              <div className="trusted-icon"></div>
-              <span className="trusted-text">Надійний продавець</span>
-            </div>
+            <span className="seller-name">{user?.username || 'Продавець'}</span>
+            {profile?.ratingCount && (
+              <div className="seller-rating">
+                <div className="star">⭐</div>
+                <span className="average-rating-2">{profile.averageRating?.toFixed(1) || '0.0'}</span>
+                <span className="rating-count">
+                  {profile.ratingCount} оцінок
+                </span>
+              </div>
+            )}
+            {profile?.ratingStatus && (
+              <div className="trusted-seller">
+                <div className="trusted-icon">👑</div>
+                <span className="trusted-text">
+                  {getRatingStatusText(profile.ratingStatus)}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </div>

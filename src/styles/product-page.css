@@ -3,9 +3,11 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 16px;
   font-family: "Inria Serif", serif;
-  padding-bottom: 60px; /* Отступ для футера */
+  padding-bottom: 120px; /* Отступ для футера */
+  padding-left: 188px;
+  padding-right: 168px;
 }
 
 .product-title {
@@ -50,11 +52,6 @@
 .trusted-icon {
   width: 20px;
   height: 20px;
-  background: url("../images/product-page/v342_85.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
   position: relative;
   top: 0px;
   left: 0px;
@@ -62,7 +59,7 @@
 }
 
 .post-date {
-  width: 178px;
+  width: 100%;
   color: rgba(0, 0, 0, 1);
   position: absolute;
   top: 140px;

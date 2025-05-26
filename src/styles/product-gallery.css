@@ -1,7 +1,6 @@
 /* Галерея товару */
 .product-gallery {
   display: flex;
-  margin-left: 188px; /* Компенсуємо доданий padding */
 }
 
 .thumbnails {

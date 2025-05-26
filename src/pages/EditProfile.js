@@ -136,7 +136,18 @@ export default function EditProfile() {
             disabled={isUpdating}
           >
             {isUpdating ? 'Збереження...' : 'Зберегти'}
-          </button>
+              </button>
+              
+              <span
+  style={{ 
+    textDecoration: 'underline', 
+    cursor: 'pointer', 
+    color: '#000' 
+  }}
+  onClick={() => window.history.back()}
+>
+  Повернутися
+</span>
                 </div>
                 </form>
                 

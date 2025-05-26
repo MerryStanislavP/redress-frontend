@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import "../styles/recipient-info.css";
 
-const RecipientInfo = () => {
+const RecipientInfo = ({ phoneNumber }) => {
   const [formData, setFormData] = useState({
     lastName: "",
     firstName: "",
     middleName: "",
-    phone: "+380974567891",
+    phone: { phoneNumber },
   });
 
   const [errors, setErrors] = useState({

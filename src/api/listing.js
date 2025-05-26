@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { demoListings } from '../demoData'; // Імпорт демо-функції
+import { demoListingDetails, demoCategories, demoProfiles, demoUsers } from '../demoData';
 
 const API_BASE_URL = 'https://localhost:7029/api';
 
@@ -123,11 +124,125 @@ const demoFetchListingImages = async (listingId) => {
   };
 
 // Отримання деталей оголошення (дата створення)
-export const fetchListingDetails = async (listingId) => {
+// export const fetchListingDetails = async (listingId) => {
+//   try {
+//     const response = await axios.get(`${API_BASE_URL}/Listing/${listingId}`);
+//     return response.data;
+//   } catch (error) {
+//     throw new Error('Помилка при завантаженні деталей оголошення');
+//   }
+// };
+
+// src/api/listing.js
+
+
+export const fetchListingDetails = async (id) => {
+  if (process.env.REACT_APP_DEMO_MODE === 'true') {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        // Шукаємо товар в demoListingDetails за ID
+        const listing = Array.isArray(demoListingDetails) 
+          ? demoListingDetails.find(item => item.id === id)
+          : demoListingDetails.id === id 
+            ? demoListingDetails 
+            : null;
+        
+        if (listing) {
+          resolve(listing);
+        } else {
+          // Якщо не знайдено, створюємо об'єкт з мінімальними даними
+          resolve({
+            id,
+            title: `Товар ${id}`,
+            price: 0,
+            isAuction: false,
+            description: 'Опис відсутній',
+            images: [],
+            createdAt: new Date().toISOString(),
+            status: 'Active'
+          });
+        }
+      }, 500);
+    });
+  }
+
+  // Реальний запит до API
+  const response = await fetch(`/api/listings/${id}`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch listing details');
+  }
+  return response.json();
+};
+
+
+// Функція для отримання категорій товару
+export const fetchListingCategories = async (listingId) => {
+  if (process.env.REACT_APP_DEMO_MODE === 'true') {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        const category = demoCategories[listingId] || {
+          id: 'default-category',
+          name: 'Загальна категорія',
+          sex: 'Unisex',
+          parentId: null,
+          children: []
+        };
+        resolve(category);
+      }, 300);
+    });
+  }
+
   try {
-    const response = await axios.get(`${API_BASE_URL}/Listing/${listingId}`);
+    const response = await axios.get(`${API_BASE_URL}/Category/by-listing/${listingId}`);
     return response.data;
   } catch (error) {
-    throw new Error('Помилка при завантаженні деталей оголошення');
+    throw new Error(error.response?.data?.message || 'Помилка при завантаженні категорій');
+  }
+};
+
+// Функція для отримання даних профілю
+export const fetchProfileDetails = async (profileId) => {
+  if (process.env.REACT_APP_DEMO_MODE === 'true') {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(demoProfiles[profileId] || {
+          id: profileId,
+          userId: 'default-user-id',
+          ratingCount: 0,
+          averageRating: 0,
+          ratingStatus: 'New',
+          profileImage: null
+        });
+      }, 300);
+    });
+  }
+
+  try {
+    const response = await axios.get(`${API_BASE_URL}/Profile/${profileId}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'Помилка при завантаженні профілю');
+  }
+};
+
+// Функція для отримання даних користувача
+export const fetchUserDetails = async (userId) => {
+  if (process.env.REACT_APP_DEMO_MODE === 'true') {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(demoUsers[userId] || {
+          username: 'user' + Math.floor(Math.random() * 1000),
+          email: 'user@example.com',
+          phoneNumber: '+380000000000'
+        });
+      }, 300);
+    });
+  }
+
+  try {
+    const response = await axios.get(`${API_BASE_URL}/User/${userId}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'Помилка при завантаженні користувача');
   }
 };

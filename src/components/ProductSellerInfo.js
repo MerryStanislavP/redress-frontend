@@ -4,9 +4,11 @@ import PropTypes from "prop-types";
 import "../styles/product-seller-info.css"
 
 const ProductSellerInfo = ({
-  productName = "Жакет строгий на гудзиках Mango",
-  price = "880 грн",
-  sellerName = "ketrin28",
+  productName,
+  price,
+  sellerName,
+  sellerAvatar,
+  productImage
 }) => {
   return (
     <div className="product-seller-container">
@@ -16,15 +18,15 @@ const ProductSellerInfo = ({
         <span className="seller-label">Продавець:</span>
         <div className="seller-block">
           <div className="seller-avatar">
-            <div className="avatar-icon"></div>
+            <div className="avatar-icon" style={{ backgroundImage: sellerAvatar ? `url(${sellerAvatar})` : 'none' }}></div>
           </div>
           <span className="seller-nickname">{sellerName}</span>
         </div>
       </div>
 
-      <div className="product-card">
+      <div className="product-card2">
         <div className="product-content">
-          <div className="product-image"></div>
+          <div className="product-image" style={{ backgroundImage: productImage ? `url(${productImage})` : 'none' }}></div>
           <span className="product-name">{productName}</span>
         </div>
         <span className="product-price">{price}</span>
@@ -37,6 +39,8 @@ ProductSellerInfo.propTypes = {
   productName: PropTypes.string,
   price: PropTypes.string,
   sellerName: PropTypes.string,
+  sellerAvatar: PropTypes.string,
+  productImage: PropTypes.string,
 };
 
 export default ProductSellerInfo;

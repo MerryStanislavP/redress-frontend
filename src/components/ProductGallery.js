@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "../styles/product-gallery.css";
 
-import img1 from "../images/product-page/v342_74.png";
-import img2 from "../images/product-page/v342_74.png";
-import img3 from "../images/product-page/v342_74.png";
+// import img1 from "../images/product-page/v342_74.png";
+// import img2 from "../images/product-page/v342_74.png";
+// import img3 from "../images/product-page/v342_74.png";
 
-const images = [img1, img2, img3];
+// const images = [img1, img2, img3];
 
-const ProductGallery = () => {
+const ProductGallery = ({ images = [] }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -29,16 +29,20 @@ const ProductGallery = () => {
     setCurrentImageIndex(newIndex);
   };
 
+  if (images.length === 0) {
+    return <div className="no-images">Немає зображень</div>;
+  }
+
   return (
     <div className="product-gallery">
       {/* Мініатюри зліва */}
       <div className="thumbnails">
         {images.map((img, index) => (
           <div
-            key={index}
-            className="thumbnail"
-            style={{ backgroundImage: `url(${img})` }}
-            onClick={() => openModal(index)}
+          key={img.id}
+          className="thumbnail"
+          style={{ backgroundImage: `url(${img.url})` }}
+          onClick={() => openModal(index)}
           ></div>
         ))}
       </div>
@@ -46,7 +50,7 @@ const ProductGallery = () => {
       {/* Головне фото */}
       <div
         className="main-image"
-        style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+        style={{ backgroundImage: `url(${images[currentImageIndex].url})` }}
         onClick={() => openModal(currentImageIndex)}
       ></div>
 
@@ -66,7 +70,7 @@ const ProductGallery = () => {
             <div
               className="modal-image"
               style={{
-                backgroundImage: `url(${images[currentImageIndex]})`,
+                backgroundImage: `url(${images[currentImageIndex].url})`,
                 backgroundSize: "contain",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
