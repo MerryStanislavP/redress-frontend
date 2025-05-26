@@ -6,13 +6,14 @@ import RecipientInfo from "../components/RecipientInfo";
 import ProductSellerInfo from "../components/ProductSellerInfo";
 import OrderSummary from "../components/OrderSummary";
 import FeedbackModal from "../components/FeedbackModal"; // The feedback modal component
-import { useNavigate } from "react-router-dom"; // Hook for navigation
 import { fetchProfileDetails, fetchUserDetails } from "../api/listing";
 import { fetchCurrentUserProfile } from "../api/profile";
+import { createDeal, createFeedback } from "../api/deal";
 
 const OrderPage = () => {
   // State to control the visibility of the feedback modal
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const [dealId, setDealId] = useState(null);
   // Initialize the navigate function for programmatic navigation
   const navigate = useNavigate();
 
@@ -22,32 +23,17 @@ const OrderPage = () => {
     setShowFeedbackModal(true); // Show the feedback modal
   };
 
-  // Function called when the feedback modal is closed (e.g., by clicking "x")
-  const handleCloseFeedbackModal = () => {
-    setShowFeedbackModal(false); // Hide the modal
-    navigate("/main-page"); // Navigate to the main page
-  };
-
-  // Function called when the feedback form inside the modal is submitted
-  const handleSubmitFeedback = ({ rating, comment }) => {
-    console.log("Feedback Submitted:", { rating, comment });
-    // In a real application, you would send this data to your backend API here
-    alert("Дякуємо за ваш відгук!"); // Simple confirmation message
-    setShowFeedbackModal(false); // Hide the modal after submission
-    navigate("/main-page"); // Navigate to the main page
-  };
-
   const location = useLocation();
   const [listing, setListing] = useState(null);
   const [seller, setSeller] = useState(null);
   const [buyerPhone, setBuyerPhone] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false); // Для індикатора завантаження
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        // Отримуємо дані зі стану навігації або localStorage
         const listingData = location.state?.listing || 
           JSON.parse(localStorage.getItem('currentOrderListing'));
         
@@ -58,23 +44,21 @@ const OrderPage = () => {
 
         setListing(listingData);
 
-        // Отримуємо дані продавця
         if (listingData.profileId) {
           const profile = await fetchProfileDetails(listingData.profileId);
           const user = await fetchUserDetails(profile.userId);
           setSeller({ profile, user });
         }
 
-        // Отримуємо телефон покупця
-      const userProfile = await fetchCurrentUserProfile();
-      if (userProfile && userProfile.userId) {
-        const buyerUser = await fetchUserDetails(userProfile.userId);
-        if (buyerUser && buyerUser.phoneNumber) {
-          setBuyerPhone(buyerUser.phoneNumber);
-        } else {
-          setBuyerPhone('Номер не вказаний');
+        const userProfile = await fetchCurrentUserProfile();
+        if (userProfile && userProfile.userId) {
+          const buyerUser = await fetchUserDetails(userProfile.userId);
+          if (buyerUser && buyerUser.phoneNumber) {
+            setBuyerPhone(buyerUser.phoneNumber);
+          } else {
+            setBuyerPhone('Номер не вказаний');
+          }
         }
-      }
 
       } catch (err) {
         setError(err.message);
@@ -85,6 +69,63 @@ const OrderPage = () => {
 
     loadData();
   }, [location, navigate]);
+
+  // Функція для створення угоди
+  const createDealHandler = async () => {
+    if (!listing) return;
+
+    try {
+      setIsProcessingPayment(true);
+      
+      const dealData = {
+        Status: 'Completed', // або 'Pending' залежно від вашої логіки
+        ListingType: listing.isAuction ? 'Auction' : 'Sale',
+        Price: listing.price,
+        ListingId: listing.id,
+        ProfileId: listing.profileId
+      };
+
+      // Викликаємо API для створення угоди
+      const createdDealId = await createDeal(dealData);
+      setDealId(createdDealId);
+      
+      // Показуємо модалку для відгуку після успішного створення угоди
+      setShowFeedbackModal(true);
+    } catch (error) {
+      console.error('Помилка при створенні угоди:', error);
+      alert('Сталася помилка при оформленні замовлення. Спробуйте ще раз.');
+    } finally {
+      setIsProcessingPayment(false);
+    }
+  };
+
+  // Функція для відправки відгуку
+  const handleSubmitFeedback = async ({ rating, comment }) => {
+    if (!dealId) {
+      console.error('ID угоди відсутній');
+      return;
+    }
+
+    try {
+      const feedbackData = {
+        Rating: rating,
+        Comment: comment,
+        DealId: dealId
+      };
+
+      await createFeedback(feedbackData);
+      alert('Дякуємо за ваш відгук!');
+      navigate("/main-page");
+    } catch (error) {
+      console.error('Помилка при відправці відгуку:', error);
+      alert('Сталася помилка при відправці відгуку. Спробуйте ще раз.');
+    }
+  };
+
+  const handleCloseFeedbackModal = () => {
+    setShowFeedbackModal(false);
+    navigate("/main-page");
+  };
 
   if (loading) return <div className="loading">Завантаження даних...</div>;
   if (error) return <div className="error">Помилка: {error}</div>;
@@ -109,6 +150,8 @@ const OrderPage = () => {
         productPrice={`${listing.price} грн`}
         deliveryPrice="За тарифами перевізника"
         totalPrice={`${listing.price} грн`}
+        onPayClick={createDealHandler}
+        isProcessing={isProcessingPayment}
       />
 
       {/* Conditionally render the FeedbackModal based on showFeedbackModal state */}

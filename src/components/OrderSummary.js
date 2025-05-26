@@ -2,12 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../styles/order-summary.css";
 
-const OrderSummary = ({
-  productPrice = "880 грн",
-  deliveryPrice = "За тарифами перевізника",
-  totalPrice = "880 грн",
-  onPayClick,
-}) => {
+const OrderSummary = (
+  { productPrice, deliveryPrice, totalPrice, onPayClick, isProcessing }
+) => {
   return (
     <div className="summary-card">
       <span className="summary-title">Разом</span>
@@ -33,8 +30,12 @@ const OrderSummary = ({
         </div>
       </div>
 
-      <button className="pay-button" onClick={onPayClick}>
-        Сплатити
+      <button 
+        onClick={onPayClick} 
+        disabled={isProcessing}
+        className={`pay-button ${isProcessing ? 'processing' : ''}`}
+      >
+        {isProcessing ? 'Обробка...' : 'Сплатити'}
       </button>
     </div>
   );
