@@ -64,7 +64,7 @@ main {
   opacity: 1;
   text-align: left;
 }
-.container-btn {
+/* .container-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,7 +74,24 @@ main {
   background: rgba(60, 193, 43, 1);
   border-radius: 4px;
   overflow: hidden;
-  margin: 1rem auto; /* центрування по горизонталі */
+  margin: 1rem auto; 
+  cursor: pointer;
+} */
+
+.container-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  /* 8px зверху/знизу, 16px зліва/справа */
+  background: rgba(60, 193, 43, 1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem auto;
+  cursor: pointer;
+  width: fit-content;
+  /* ширина по вмісту */
+  max-width: 355px;
 }
 
 .text-btn {
@@ -84,6 +101,7 @@ main {
   font-size: clamp(14px, 1.5vw, 18px);
   text-align: center;
   padding: 0 0.5rem;
+  cursor: pointer;
 }
 
 .ad-description-text-2 {
@@ -165,7 +183,7 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10rem; /* відступи між блоками */
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 .section-container {
@@ -351,6 +369,7 @@ main {
   border-radius: 4px;
   overflow: hidden;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .btn-text {
@@ -360,6 +379,7 @@ main {
   font-size: clamp(14px, 1.5vw, 18px);
   text-align: center;
   padding: 0 0.5rem;
+  cursor: pointer;
 }
 
 .blurred {

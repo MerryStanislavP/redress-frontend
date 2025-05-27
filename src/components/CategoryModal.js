@@ -1,50 +1,69 @@
 import React, { useState } from "react";
 import "../styles/category-modal.css";
 
-export default function CategoryModal({ section, onClose, onSelect }) {
-  const [selectedCategory, setSelectedCategory] = useState("Одяг");
-  const categories = ["Одяг", "Взуття", "Аксесуари"];
-  const subcategories = Array.from(
-    { length: 10 },
-    (_, i) => `Підкатегорія ${i + 1}`
-  );
+export default function CategoryModal({ categories, onClose, onSelect }) {
+  const [selectedNodes, setSelectedNodes] = useState([]);
+  const [currentLevel, setCurrentLevel] = useState(0);
 
-  const handleClick = (subcategory) => {
-    onSelect(selectedCategory, subcategory); // передаємо вибір у AdFormPage
+  const handleCategorySelect = (node, level) => {
+    const newSelectedNodes = [...selectedNodes.slice(0, level), node];
+    setSelectedNodes(newSelectedNodes);
+    setCurrentLevel(level + 1);
+
+    if (!node.children || node.children.length === 0) {
+      onSelect(newSelectedNodes.map(n => n.name), node.id);
+    }
+  };
+
+  const getCurrentCategories = () => {
+    if (selectedNodes.length === 0) return categories;
+    
+    let current = selectedNodes[selectedNodes.length - 1].children;
+    for (let i = 0; i < currentLevel - 1; i++) {
+      if (!current || current.length === 0) break;
+      current = current[0].children;
+    }
+    
+    return current || [];
   };
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
-        <div className="category-list">
-          {categories.map((cat) => (
-            <div
-              key={cat}
-              className={`category-item ${
-                selectedCategory === cat ? "active" : ""
-              }`}
-              onClick={() => setSelectedCategory(cat)}
-            >
-              {cat}
-            </div>
-          ))}
+      <div className="modal-content-">
+        <div className="breadcrumbs">
+          {selectedNodes.length > 0 && (
+            <span>
+              {selectedNodes.map((node, i) => (
+                <React.Fragment key={node.id}>
+                  <span 
+                    className="breadcrumb-item" 
+                    onClick={() => {
+                      setSelectedNodes(selectedNodes.slice(0, i + 1));
+                      setCurrentLevel(i + 1);
+                    }}
+                  >
+                    {node.name}
+                  </span>
+                  {i < selectedNodes.length - 1 && <span> / </span>}
+                </React.Fragment>
+              ))}
+            </span>
+          )}
         </div>
 
-        <div className="subcategory-placeholder">
-          <p>
-            <strong>{section}</strong> / <strong>{selectedCategory}</strong>
-          </p>
-          <div className="subcategory-buttons">
-            {subcategories.map((sub, index) => (
-              <button
-                key={index}
-                className="subcategory-btn"
-                onClick={() => handleClick(sub)}
-              >
-                {sub}
-              </button>
-            ))}
-          </div>
+        <div className="category-list">
+          {getCurrentCategories().map(category => (
+            <div
+              key={category.id}
+              className="category-item"
+              onClick={() => handleCategorySelect(category, currentLevel)}
+            >
+              {category.name}
+              {category.children && category.children.length > 0 && (
+                <span className="arrow">→</span>
+              )}
+            </div>
+          ))}
         </div>
 
         <button className="close-modal-btn" onClick={onClose}>

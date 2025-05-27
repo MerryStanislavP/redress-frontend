@@ -9,6 +9,7 @@ import CatalogList from "../components/CatalogList";
 import Pagination from "../components/Pagination";
 import { useQuery } from '@tanstack/react-query';
 import { fetchListingsBySex } from '../api/listing';
+import Filters2 from "../components/Filters2";
 // import { demoListings as fetchListingsBySex } from '../demoData';
 
 
@@ -68,7 +69,7 @@ export default function CatalogPage() {
       />
       <div className="container">
         <div className="filters">
-          <Filters sex={sex} />
+          <Filters2 sex={sex} />
         </div>
 
         <div className="content-area">
