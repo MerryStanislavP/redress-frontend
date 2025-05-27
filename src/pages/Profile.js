@@ -3,14 +3,16 @@ import "../styles/profile.css";
 import React, { useState, useEffect } from 'react';
 import RatingComponent from '../components/RatingComponent';
 import UserInfoComponent from '../components/UserInfoComponent';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { fetchProfile } from '../api/profile';
+import { fetchUserById } from "../api/user";
 import ProfileImage from '../components/ProfileImage';
 import BioComponent from '../components/BioComponent';
 import WalletBalance from '../components/WalletBalance';
-import { fetchProfileFeedbacks } from '../api/feedback';
 import { FeedbackList } from '../components/FeedbackList';
+import { FavoritesList } from "../components/FavoritesList";
+import { UserProductList } from "../components/UserProductList";
 
 const sortOptions1 = [
     "За популярністю",
@@ -28,15 +30,39 @@ const sortOptions2 = [
 ];
   
 export default function Profile() {
-  const { data: profileData, isLoading, error } = useQuery({
+  // Отримуємо дані профілю
+  const { data: profileData, isLoading: isProfileLoading, error: profileError } = useQuery({
     queryKey: ['profile'],
     queryFn: fetchProfile,
     staleTime: 1000 * 60 * 5, // Дані будуть "свіжими" 5 хвилин
   });
-  
 
+  // Отримуємо дані користувача, коли profileData доступний
+  const { data: userData, isLoading: isUserLoading, error: userError } = useQuery({
+    queryKey: ['user', profileData?.UserId],
+    queryFn: () => fetchUserById(profileData?.UserId),
+    enabled: !!profileData?.UserId, // Запит виконується тільки коли є UserId
+    staleTime: 1000 * 60 * 5,
+  });
+
+  // Об'єднуємо стан завантаження та помилок
+  const isLoading = isProfileLoading || isUserLoading;
+  const error = profileError || userError;
+
+  // Зберігаємо дані в localStorage для сторінки редагування
+  useEffect(() => {
+    if (profileData && userData) {
+      localStorage.setItem('profileEditData', JSON.stringify({
+        profile: profileData,
+        user: userData
+      }));
+    }
+  }, [profileData, userData]);
+
+  
+  const { state } = useLocation();
     const [sort1, setSort1] = useState(sortOptions1[0]);
-      const [sort2, setSort2] = useState(sortOptions2[0]);
+      const [sort2, setSort2] = useState(state?.activeTab || sortOptions2[0]);
     
       const handleReset = () => {
         setSort1(sortOptions1[0]);
@@ -44,6 +70,13 @@ export default function Profile() {
   };
   
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Якщо є активний таб у стані, встановлюємо його
+    if (state?.activeTab) {
+      setSort2(state.activeTab);
+    }
+  }, [state]);
 
   if (isLoading) return <div className="loading">Завантаження профілю...</div>;
   if (error) return <div className="error">Помилка: {error.message}</div>;
@@ -64,7 +97,7 @@ export default function Profile() {
         <ProfileImage imageUrl={profileData?.profileImage?.url} />
 
         <div className="info-section">
-          <span className="username">sxirens</span>
+            <span className="username">{userData?.username}</span>
 
           <RatingComponent />
 
@@ -77,9 +110,17 @@ export default function Profile() {
           />
 
           <div className="buttons-wrapper">
-            <button className="edit-btn" onClick={() => navigate("/edit-profile-page")}>
-              Редагувати профіль
-            </button>
+          <button 
+        className="edit-btn" 
+        onClick={() => navigate("/edit-profile-page", { 
+          state: { 
+            profileData: profileData,
+            userData: userData
+          } 
+        })}
+      >
+        Редагувати профіль
+      </button>
             <button className="add-listing-btn" onClick={() => navigate("/ad-form")}>
               Додати оголошення
             </button>
@@ -113,31 +154,37 @@ export default function Profile() {
         )}
 
         {sort2 === "Мої товари" && (
-          <div className="content-section">
-            <div className="sort">
+          <div className="content-section-2">
+            {/* <div className="sort">
             <SortSelector
             options={sortOptions1}
             active={sort1}
             setActive={setSort1}
             variant="default"
           />
-          </div>
+            </div> */}
+            <UserProductList profileId={profileData.Id} />
         </div>
         )}
 
 {sort2 === "Відгуки" && (
-          // <div className="content-section">
-          //   <FeedbackList profileId={profileId} />
-          // </div>
           <div className="content-section">
-            <div className="text-wrapper"><p className="text">Тут поки пусто</p></div>
-          </div>
+                      <FeedbackList profileId={profileData.Id} />
+                    </div>
         )}
 
 {sort2 === "Обране" && (
-          <div className="content-section">
-            <div className="text-wrapper"><p className="text">Тут поки пусто</p></div>
-          </div>
+          <div className="content-section-2">
+                      {/* <div className="sort">
+                      <SortSelector
+                      options={sortOptions1}
+                      active={sort1}
+                      setActive={setSort1}
+                      variant="default"
+                    />
+                            </div> */}
+                            <FavoritesList profileId={profileData?.Id} />
+                  </div>
         )}
 
         </>

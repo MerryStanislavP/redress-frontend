@@ -1,4 +1,6 @@
 export const demoProfileData = {
+  Id: '123e4567-e89b-12d3-a456-426614174000',
+    UserId: '123e4567-e89b-12d3-a456-426614174000',
     profileImage: {
       url: "https://i.pinimg.com/736x/fe/38/a9/fe38a90127def08c876ccdd77956e7ff.jpg"
     },
@@ -9,7 +11,7 @@ export const demoProfileData = {
     latitude: 49.9935,
     longitude: 36.2304,
     bio: "Привіт! Я дизайнерка з Харкова. Люблю створювати красиві речі та знаходити унікальні рішення.",
-    balance: 876.50
+  balance: 876.50, 
 };
   
 export const demoUserData = {
@@ -339,3 +341,76 @@ export const getPaginatedData = (allItems, page, pageSize) => {
     hasNextPage: endIndex < allItems.length
   };
 };
+
+export const demoProductsData = [
+  {
+    id: '201',
+    title: 'Кросівки Nike Air Max 270',
+    price: 3499,
+    isAuction: false,
+    url: 'https://example.com/nike-air-max-270.jpg'
+  },
+  {
+    id: '202',
+    title: 'Сукня Zara з квітковим принтом',
+    price: 2199,
+    isAuction: false,
+    url: 'https://example.com/zara-dress.jpg'
+  },
+  {
+    id: '203',
+    title: 'Годинник Casio G-Shock',
+    price: 2799,
+    isAuction: true,
+    url: 'https://example.com/casio-gshock.jpg'
+  },
+  {
+    id: '204',
+    title: 'Сумка Michael Kors Bedford',
+    price: 3999,
+    isAuction: false,
+    url: 'https://example.com/mk-bedford.jpg'
+  },
+  {
+    id: '205',
+    title: 'Чоловіча футболка Levi’s Classic',
+    price: 899,
+    isAuction: false,
+    url: 'https://example.com/levis-tshirt.jpg'
+  },
+  {
+    id: '206',
+    title: 'Жіночі туфлі Aldo',
+    price: 2899,
+    isAuction: true,
+    url: 'https://example.com/aldo-heels.jpg'
+  },
+  {
+    id: '207',
+    title: 'Сонцезахисні окуляри Ray-Ban Aviator',
+    price: 3299,
+    isAuction: false,
+    url: 'https://example.com/rayban-aviator.jpg'
+  },
+  {
+    id: '208',
+    title: 'Спортивні штани Adidas Essentials',
+    price: 1599,
+    isAuction: false,
+    url: 'https://example.com/adidas-pants.jpg'
+  },
+  {
+    id: '209',
+    title: 'Жіноча куртка The North Face',
+    price: 4899,
+    isAuction: true,
+    url: 'https://example.com/tnf-jacket.jpg'
+  },
+  {
+    id: '210',
+    title: 'Шкіряний ремінь Timberland',
+    price: 999,
+    isAuction: false,
+    url: 'https://example.com/timberland-belt.jpg'
+  }
+]

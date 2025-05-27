@@ -40,11 +40,20 @@
         box-sizing: border-box;
 }
 
-.photo-container img {
+/* .photo-container img {
     display: block;
     max-width: 100%;
     height: auto;
     object-fit: cover;
+} */
+
+.photo-container img {
+    width: 160px;
+    /* або будь-яке фіксоване значення */
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
 }
 
 /* Заголовки секцій */

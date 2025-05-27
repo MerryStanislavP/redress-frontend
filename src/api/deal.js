@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // export const createDeal = async (dealData) => {
 //   try {
-//     const response = await axios.post('/api/deals', dealData);
+//     const response = await axios.post('https://localhost:7029/API/Deal/Create', dealData);
 //     return response.data; // Повертає dealId
 //   } catch (error) {
 //     console.error('Error creating deal:', error);
@@ -12,7 +12,7 @@ import axios from 'axios';
 
 // export const createFeedback = async (feedbackData) => {
 //   try {
-//     const response = await axios.post('/api/feedbacks', feedbackData);
+//     const response = await axios.post('https://localhost:7029/API/Feedback/Create', feedbackData);
 //     return response.data; // Повертає feedbackId
 //   } catch (error) {
 //     console.error('Error creating feedback:', error);
