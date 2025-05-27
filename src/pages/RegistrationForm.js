@@ -31,7 +31,7 @@ const RegistrationForm = () => {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:3001/api/register", {
+      const response = await fetch("https://localhost:7029/API/Auth/Register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

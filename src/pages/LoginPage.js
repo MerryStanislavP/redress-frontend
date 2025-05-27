@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
+import { login, isAuthenticated } from "../api/auth";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    // Check if user is already authenticated
+    if (isAuthenticated()) {
+      navigate("/main-page");
+    }
+  }, [navigate]);
 
   const handleRegistrationClick = () => {
     navigate("/registration");
@@ -14,30 +23,22 @@ const LoginPage = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
+    setErrorMessage("");
+    setIsLoading(true);
 
     if (!email || !password) {
       setErrorMessage("Будь ласка, заповніть усі поля.");
+      setIsLoading(false);
       return;
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Вхід успішний:", data);
-        navigate("/main-page");
-      } else {
-        const error = await response.json();
-        setErrorMessage(error.message || "Невірний email або пароль.");
-      }
+      await login(email, password);
+      navigate("/main-page");
     } catch (error) {
-      console.error("Помилка входу:", error);
-      setErrorMessage("Сталась помилка під час входу.");
+      setErrorMessage(error.message || "Невірний email або пароль.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -53,9 +54,10 @@ const LoginPage = () => {
             type="button"
             className="login-btn"
             id="loginBtn"
-            onClick={(e) => handleLogin(e)}
+            onClick={handleLogin}
+            disabled={isLoading}
           >
-            Увійти
+            {isLoading ? "Завантаження..." : "Увійти"}
           </button>
         </div>
 
@@ -98,10 +100,11 @@ const LoginPage = () => {
         <div className="login-input-container">
           <input
             className="login-input"
-            type="text"
+            type="email"
             placeholder="Введіть email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={isLoading}
           />
         </div>
         <div className="password-input-container">
@@ -111,6 +114,7 @@ const LoginPage = () => {
             placeholder="Введіть пароль"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            disabled={isLoading}
           />
         </div>
       </div>

@@ -4,7 +4,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./styles/main.css";
 import HelpPage from "./pages/HelpPage";
 import Registration from "./pages/Registration";
-import RegistrationForm from "./pages/RegistrationForm"; // додай цей імпорт
+import RegistrationForm from "./pages/RegistrationForm";
 import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/LoginPage";
 import AdFormPage from "./pages/AdFormPage";
@@ -14,9 +14,10 @@ import CatalogPage from "./pages/CatalogPage";
 import ProductPage from "./pages/ProductPage";
 import OrderPage from "./pages/OrderPage";
 import SellerPage from "./pages/SellerPage";
-
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 const clientId =
   "587875719115-mgdk3iaeh1t65f9uca8i8vlee2bql5f5.apps.googleusercontent.com";
 
@@ -38,21 +39,21 @@ const App = () => {
           <Route
             path="/ad-form"
             element={
-              <>
+              <ProtectedRoute>
                 <Header />
                 <AdFormPage />
                 <FooterDynamic />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/order"
             element={
-              <>
+              <ProtectedRoute>
                 <Header />
                 <OrderPage />
                 <FooterDynamic />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
@@ -98,11 +99,11 @@ const App = () => {
           <Route
             path="/main-page"
             element={
-              <>
+              <ProtectedRoute>
                 <Header />
                 <MainPage />
                 <FooterDynamic />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
@@ -118,21 +119,21 @@ const App = () => {
           <Route
             path="/profile"
             element={
-              <>
+              <ProtectedRoute>
                 <Header />
                 <Profile />
                 <FooterDynamic />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/edit-profile-page"
             element={
-              <>
+              <ProtectedRoute>
                 <Header />
                 <EditProfile />
                 <FooterDynamic />
-              </>
+              </ProtectedRoute>
             }
           />
           <Route
